@@ -5,12 +5,14 @@
  */
 package com.noman.doctorshouse.controller;
 
-
+import com.noman.doctorshouse.command.LoginCommand;
 import com.noman.doctorshouse.command.RegistrationCommand;
+import com.noman.doctorshouse.domain.Student;
 import com.noman.doctorshouse.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -32,8 +34,9 @@ public class StudentController {
 
     //Return Login page after clicking Login 
     @RequestMapping(value = {"student/loginPage"})
-    public String loginReturn() {
-        
+    public String loginReturn(Model m) {
+        LoginCommand cmd = new LoginCommand();
+        m.addAttribute("command", cmd);
         return "login";
     }
 
@@ -42,7 +45,7 @@ public class StudentController {
     public String registrationReturn(Model m) {
         RegistrationCommand cmd = new RegistrationCommand();
         m.addAttribute("command", cmd);
-                
+
         return "registration";
     }
 
@@ -51,11 +54,45 @@ public class StudentController {
     public String scheduleReturn() {
         return "Schedule";
     }
-    
-     //Return prescription page after clicking Login 
+
+    //Return prescription page after clicking Login 
     @RequestMapping(value = {"student/prescription"})
     public String prescriptionReturn() {
         return "prescription";
+    }
+
+    @RequestMapping(value = {"/student/registrationdo"})
+    public String registrationDo(@ModelAttribute("command") RegistrationCommand cmd, Model m) {
+        Student s = cmd.getS();
+        studentService.register(s);
+        return "success";
+    }
+
+    @RequestMapping(value = {"/student/logindo"})
+    public String loginDo(@ModelAttribute("command") LoginCommand cmd, Model M) {
+        
+        try {
+           Student loggedinStudent = studentService.login(cmd.getStudentId(), cmd.getPassword());
+            if(loggedinStudent == null){
+             M.addAttribute("msg", "wrogn");
+             return "fail";
+             
+            }else{
+                M.addAttribute("msg", "fuck you did this");
+                return "success";
+            }
+                
+                
+        } catch (NullPointerException exception) {
+            return "fail";
+        }
+
+        
+    }
+      @RequestMapping(value = {"/prestest"})
+    public String pres() {
+    
+        return "presDetails";
     }
 
 }

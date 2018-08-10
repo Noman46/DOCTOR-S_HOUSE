@@ -26,8 +26,8 @@ public class TestServiceRegistration {
       ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringRootConfig.class);
       StudentService sr= ctx.getBean(StudentService.class);
       Student s = new Student();
-      s.setStudentId("IT-12001");
-      s.setName("Imon");
+      s.setStudentId("IT-12004");
+      s.setName("Imu");
       s.setPhone("01722717283");
       s.setEmail("imon@gmail.com");
       s.setAddress("Savar");

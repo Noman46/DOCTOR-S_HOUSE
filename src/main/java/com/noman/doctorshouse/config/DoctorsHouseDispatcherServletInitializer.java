@@ -22,7 +22,7 @@ public class DoctorsHouseDispatcherServletInitializer extends AbstractAnnotation
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{SpringWebConfig.class, webjar.class};
+        return new Class[]{SpringWebConfig.class};
     }
 
     @Override

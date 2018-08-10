@@ -96,6 +96,8 @@
 
 
                         <f:button type="submit" class="btn btn-success btn-block ">Register</f:button>
+                        <s:url var="url_log_page" value="/student/loginPage"></s:url>
+                        <p><h4>Registered Already.<a href="${url_log_page}">click</a> Here to login</h4></p>
                     </f:form>
 
                     <!-- Form End -->
