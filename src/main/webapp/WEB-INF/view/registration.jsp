@@ -36,13 +36,13 @@
                 background-color: black;
                 opacity: 0.9;}
             .form-control:focus{
-                border-color: #cccccc;
+                border-color: black;
                 -webkit-box-shadow: none;
                 box-shadow: none;
             }
 
             .from-container:hover {
-                box-shadow: -10px 10px 20px white, 10px -10px 20px white;
+                box-shadow: -5px 5px 15px white, 5px -5px 15px white;
             }
 
         </style>
@@ -58,44 +58,45 @@
                 <div class="col-md-4 col-sm-4 col-xs-12"></div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <!-- Form Start -->
-                    <form class="from-container">
+                    <s:url var="url_registration" value="/student/registrationdo"></s:url>
+                    <f:form action="${url_registration}" modelAttribute="command" class="from-container">
                         <div class="form-group">
                             <label for="studentId">Your Student ID</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            <f:input  path="s.studentId"  class="form-control" id="exampleInputEmail1" placeholder="Student-ID"/>
                         </div>
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name">
+                            <f:input path="s.name" class="form-control" id="exampleInputPassword1" placeholder="Name"/>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Phone">
+                            <f:input path="s.phone" class="form-control" id="exampleInputPassword1" placeholder="Phone"/>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Email">
+                            <f:input path="s.email" class="form-control" id="exampleInputPassword1" placeholder="Email"/>
                         </div>
                         <div class="form-group">
                             <label for="address">Current Address</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address">
+                            <f:input path="s.address" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
                         </div>
                         <div class="form-group">
                             <label for="dept">Department</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Department">
+                            <f:input path="s.dept" class="form-control" id="exampleInputPassword1" placeholder="Department"/>
                         </div>
                         <div class="form-group">
                             <label for="session">Session</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Session">
+                            <f:input path="s.session" class="form-control" id="exampleInputPassword1" placeholder="Session"/>
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label for="s.password">Password</label>
+                            <f:input path="s.password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
                         </div>
 
 
 
-                        <button type="submit" class="btn btn-success btn-block bt">Register</button>
-                    </form>
+                        <f:button type="submit" class="btn btn-success btn-block ">Register</f:button>
+                    </f:form>
 
                     <!-- Form End -->
                 </div>
