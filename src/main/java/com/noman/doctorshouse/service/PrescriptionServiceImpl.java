@@ -30,8 +30,8 @@ public class PrescriptionServiceImpl implements PrescriptionService{
     }
     
     @Override
-    public Prescription findById(String studentId) {
-        Prescription p=prescriptionDao.findById(studentId);
+    public Prescription findById(Integer preId) {
+        Prescription p=prescriptionDao.findById(preId);
         return p;
     }
 

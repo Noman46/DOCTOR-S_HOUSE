@@ -60,6 +60,11 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <c:if test="${empty prescriptionList }">
+                            <tr>
+                                <td colspan="6" align="center"><h3 class="text-danger">You Have Not Visited The Doctors Yet. Good For You </h3></td>
+                            </tr>
+                        </c:if>
                         <c:forEach var="p" items="${prescriptionList}" varStatus="st">
 
                             <tr>
@@ -68,7 +73,10 @@
                                 <td>${p.disease}</td>
                                 <td>${p.medicine}</td>
                                 <td>${p.frequency}</td>
-                                <td><button class="btn btn-success">VIEW</button></td>
+                                <s:url var="url_view" value="/prescriptionDetails">
+                                    <s:param name="pId" value="${p.preId}"/> 
+                                </s:url>
+                                <td><a href="${url_view}"><button class="btn btn-success">VIEW</button></a></td>
                             </tr>
 
 

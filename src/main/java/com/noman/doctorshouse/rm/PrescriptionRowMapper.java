@@ -20,7 +20,8 @@ public class PrescriptionRowMapper implements RowMapper<Prescription>{
     public Prescription mapRow(ResultSet rs, int i) throws SQLException {
         
         Prescription p = new Prescription();
-        
+        p.setPreId(rs.getInt("preId"));
+        p.setDoctorId(rs.getString("doctorId"));
         p.setStudentId(rs.getString("studentId"));
         p.setStudentName(rs.getString("studentName"));
         p.setAge(rs.getInt("age"));

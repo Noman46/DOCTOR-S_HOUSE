@@ -50,16 +50,17 @@ public class PrescriptionDaoImpl extends BaseDao implements PrescriptionDao{
     }
 
     @Override
-    public Prescription findById(String studentId) {
-         String sql = "SELECT studentId, studentName, age, disease, medicine, strength, route, frequency, startDate, endDate, remarks"
-                + " FROM prescription WHERE studentId=?";
-        Prescription pre = getJdbcTemplate().queryForObject(sql, new PrescriptionRowMapper(), studentId);
+    public Prescription findById(Integer preId) {
+         String sql = "SELECT preId, doctorId, studentId, studentName, age, disease, medicine, strength, route, frequency, startDate, endDate, remarks"
+                + " FROM prescription WHERE preId=?";
+        Prescription pre = getJdbcTemplate().queryForObject(sql, new PrescriptionRowMapper(), preId);
         return pre;
     }
     
+    
     @Override
     public List<Prescription> findAll(String studentId) {
-        String sql = "SELECT  studentId, studentName, age, disease, medicine, strength, route, frequency, startDate, endDate, remarks"
+        String sql = "SELECT  preId, doctorId, studentId, studentName, age, disease, medicine, strength, route, frequency, startDate, endDate, remarks"
                 + " FROM prescription WHERE studentId=?";
         List<Prescription> p = getJdbcTemplate().query(sql, new PrescriptionRowMapper(),studentId);
         return p;

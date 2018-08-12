@@ -27,14 +27,14 @@ public class PrescripTionSave {
         p.setStudentId("IT-12046");
         p.setStudentName("Ibrahim");
         p.setAge(25);
-        p.setDisease("Cold");
-        p.setMedicine("Napa, Ace");
+        p.setDisease("Back Pain");
+        p.setMedicine("Anthropeck");
         p.setStrength("500mg, 300mg");
         p.setRoute("Mouth");
         p.setFrequency("twice in a day");
-        p.setStartDate("3/4/5");
-        p.setEndDate("10/4/5");
-        p.setRemarks("Dink water");
+        p.setStartDate("6/4/7");
+        p.setEndDate("10/3/5");
+        p.setRemarks("Sleep well, Dont bend while doing work");
         
         pre.save(p);
         System.out.println("=====Done Successfully======");

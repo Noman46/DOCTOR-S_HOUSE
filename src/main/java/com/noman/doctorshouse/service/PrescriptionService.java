@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface PrescriptionService {
     public void prescriptionSave(Prescription p);
-    public Prescription findById(String studentId);
+    public Prescription findById(Integer preId);
     public List<Prescription> findAllPrescriptions(String studentId); 
     
 }

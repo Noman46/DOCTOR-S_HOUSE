@@ -66,7 +66,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <f:input path="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                            <f:password path="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
                         </div>
                         <br>
                         <f:button type="submit" class="btn btn-success btn-block bt">Login</f:button>

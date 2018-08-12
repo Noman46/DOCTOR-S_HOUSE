@@ -25,6 +25,7 @@
         <style>
             body {
                 height: 100%;
+                background-color: #7fffd4;
             }
 
             .container {
@@ -56,58 +57,55 @@
 
             <div class="t">
                 <table class="table table-striped table-dark">
-                    
+
                     <tbody>
                         <tr>
                             <th class="text-success">Name</th>
-                            <td class="col-md-2">Muhammad Ibrahim Khalil Noman</td>
+                            <td class="col-md-2">${aPrescription.studentName}</td>
                         </tr>
                         <tr>
                             <th class="text-success">Student-ID</th>
-                            <td class="col-md-2">It-12046</td>
+                            <td class="col-md-2">${aPrescription.studentId}</td>
                         </tr>
                         <tr>
                             <th class="text-success">Age</th>
-                            <td class="col-md-2">25</td>
+                            <td class="col-md-2">${aPrescription.age}</td>
                         </tr>
                         <tr>
                             <th class="text-success">Disease</th>
-                            <td class="col-md-2  text-danger">Fever</td>
+                            <td class="col-md-2  text-danger">${aPrescription.disease}</td>
                         </tr>
                         <tr>
                             <th class="text-success">Medicine</th>
-                            <td class="col-md-2  text-danger">Napa, Ace+, Flymoxil</td>
+                            <td class="col-md-2  text-danger">${aPrescription.medicine}</td>
                         </tr>
                         <tr>
                             <th class="text-success">Strength</th>
-                            <td class="col-md-2  text-danger">500mg, 500mg, 250mg</td>
+                            <td class="col-md-2  text-danger">${aPrescription.strength}</td>
                         </tr>
                         <tr>
                             <th class="text-success">Route</th>
-                            <td class="col-md-2">Mouth</td>
+                            <td class="col-md-2">${aPrescription.route}</td>
                         </tr>
-                        <tr>
-                            <th class="text-success">Quantity</th>
-                            <td class="col-md-2  text-danger">10+10+10</td>
-                        </tr>
+                        
                         <tr>
                             <th class="text-success">Frequency</th>
-                            <td class="col-md-2  text-danger">twice in a day</td>
+                            <td class="col-md-2  text-danger">${aPrescription.frequency}</td>
                         </tr>
                         <tr>
                             <th class="text-success">Start-Date</th>
-                            <td class="col-md-2">2/3/4</td>
+                            <td class="col-md-2">${aPrescription.startDate}</td>
                         </tr>
                         <tr>
                             <th class="text-success">End-date</th>
-                            <td class="col-md-2">2/3/4</td>
+                            <td class="col-md-2">${aPrescription.endDate}</td>
                         </tr>
                         <tr>
                             <th class="text-success">Remark</th>
-                            <td class="col-md-2 text-warning">Avoide Cold places, Drink ampule amount of water</td>
+                            <td class="col-md-2 text-warning">${aPrescription.remarks}</td>
                         </tr>
                     </tbody>
-                </table>
+                </table>voide Cold places, Drink ampule amount of water
 
 
             </div>

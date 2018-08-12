@@ -24,8 +24,8 @@ public class PrescriptionSelect {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringRootConfig.class);
         PrescriptionDao pre = ctx.getBean(PrescriptionDao.class);
         
-        Prescription p = pre.findById("IT-12046");
-        System.out.println(p.toString());
+        //Prescription p = pre.findById("IT-12046");
+        //System.out.println(p.toString());
         
     }
     

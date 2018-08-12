@@ -14,6 +14,6 @@ import java.util.List;
  */
 public interface PrescriptionDao {
     public void save(Prescription pre);
-    public Prescription findById(String studentId);
+    public Prescription findById(Integer preId);
     public List<Prescription> findAll(String studentId); 
 }
