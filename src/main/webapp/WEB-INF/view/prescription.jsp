@@ -20,59 +20,68 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+
         <style>
+            body{
+                background-color: #7fffd4;
+            }
             .hea{
                 text-align: center;
                 color: green;
             }
         </style>
     </head>
-    
+
     <body>
 
         <div class="container-fluid">
             <div class= "hea">
                 <h1>Prescription</h1>
-                <h1>${sessionScope.studentName}</h1>
+
+
             </div>
 
             <div> 
-            <table class="table table-hover table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col" class="text-danger">#</th>
-                        <th scope="col" class="text-success font-weight-bold">Date</th>
-                        <th scope="col" class="text-success font-weight-bold">Disease</th>
-                        <th scope="col" class="text-success font-weight-bold">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>        
+                <table class="table table-sm table-dark">
+                    <tbody>
+                        <tr>
+                            <td align="center"><h4 class="text-success">Hi!&nbsp;  <b class="text-danger">${sessionScope.studentName}...</b>&nbsp; This is your prescription list. Click view to see the full prescription</h4></td>
+                        </tr>
+                </table>
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-danger">SERIAL</th>
+                            <th scope="col" class="text-success font-weight-bold">DATE</th>
+                            <th scope="col" class="text-success font-weight-bold">DISEASE</th>
+                            <th scope="col" class="text-success font-weight-bold">MEDICINE</th>
+                            <th scope="col" class="text-success font-weight-bold">FREQUENCY</th>
+                            <th scope="col" class="text-success font-weight-bold">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="p" items="${prescriptionList}" varStatus="st">
 
-    </div>
+                            <tr>
+                                <td>${st.count}</td>
+                                <td>${p.startDate}</td>
+                                <td>${p.disease}</td>
+                                <td>${p.medicine}</td>
+                                <td>${p.frequency}</td>
+                                <td><button class="btn btn-success">VIEW</button></td>
+                            </tr>
 
 
-</body>
+                        </c:forEach>
+
+
+                    </tbody>
+                </table>
+            </div>        
+
+        </div>
+
+
+    </body>
 </html>
 

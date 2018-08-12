@@ -10,6 +10,7 @@ import com.noman.doctorshouse.command.PrescriptionCommand;
 import com.noman.doctorshouse.command.RegistrationCommand;
 import com.noman.doctorshouse.domain.Prescription;
 import com.noman.doctorshouse.domain.Student;
+import com.noman.doctorshouse.service.PrescriptionService;
 import com.noman.doctorshouse.service.StudentService;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,8 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private PrescriptionService prescriptionService;
 //++++++++++++++++++++++++++ RETURN INDEX / STARTING / HOME PAGE+++++++++++++++++
     // Index or Landing page. 
 
@@ -84,7 +87,10 @@ public class StudentController {
     }
 
     @RequestMapping(value = {"/listOfPrescription"})
-    public String returnListPrescription() {
+    public String returnListPrescription(Model m, HttpSession session) {
+        String studentId= (String) session.getAttribute("studentId");
+        
+        m.addAttribute("prescriptionList", prescriptionService.findAllPrescriptions(studentId));
         return "prescription"; // return JSP /WEB-INF/view/dashboard_user.jsp
     }
 
