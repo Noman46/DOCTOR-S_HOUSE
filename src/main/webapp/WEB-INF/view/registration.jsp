@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
         <!-- Latest compiled and minified JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <style>
             .bg{
@@ -59,38 +60,53 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <!-- Form Start -->
                     <s:url var="url_registration" value="/student/registrationdo"></s:url>
-                    <f:form action="${url_registration}" modelAttribute="command" class="from-container">
+                    <f:form action="${url_registration}" modelAttribute="command" class="from-container" onsubmit="return validation()">
                         <div class="form-group">
                             <label for="studentId">Your Student ID</label>
-                            <f:input  path="s.studentId"  class="form-control" id="exampleInputEmail1" placeholder="Student-ID"/>
+                            <f:input  path="s.studentId"  class="form-control" id="studentId" placeholder="Student-ID" autocomplete="off"/>
+                            
                         </div>
+
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <f:input path="s.name" class="form-control" id="exampleInputPassword1" placeholder="Name"/>
+                            <f:input path="s.name" class="form-control" id="name" placeholder="Name" autocomplete="off"/>
+                           
                         </div>
+
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <f:input path="s.phone" class="form-control" id="exampleInputPassword1" placeholder="Phone"/>
+                            <f:input path="s.phone" class="form-control" id="phone" placeholder="Phone" autocomplete="off"/>
+                          
                         </div>
+
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <f:input path="s.email" class="form-control" id="exampleInputPassword1" placeholder="Email"/>
+                            <f:input path="s.email" class="form-control" id="email" placeholder="Email" autocomplete="off"/>
+                            
                         </div>
+
                         <div class="form-group">
                             <label for="address">Current Address</label>
-                            <f:input path="s.address" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                            <f:input path="s.address" class="form-control" id="address" placeholder="Address" autocomplete="off"/>
+                            
                         </div>
+
                         <div class="form-group">
                             <label for="dept">Department</label>
-                            <f:input path="s.dept" class="form-control" id="exampleInputPassword1" placeholder="Department"/>
+                            <f:input path="s.dept" class="form-control" id="dept" placeholder="Department" autocomplete="off"/>
+                            
                         </div>
+
                         <div class="form-group">
                             <label for="session">Session</label>
-                            <f:input path="s.session" class="form-control" id="exampleInputPassword1" placeholder="Session"/>
+                            <f:input path="s.session" class="form-control" id="session" placeholder="Session" autocomplete="off"/>
+                            
                         </div>
+
                         <div class="form-group">
-                            <label for="s.password">Password</label>
-                            <f:input path="s.password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                            <label for="password">Password</label>
+                            <f:input path="s.password" class="form-control" id="password" placeholder="Password" autocomplete="off"/>
+                           
                         </div>
 
 
@@ -106,6 +122,7 @@
 
             </div>
         </div>
+        
     </body>
 </html>
 
