@@ -34,16 +34,17 @@
         <div class="container-fluid">
             <div class= "hea">
                 <h1>Prescription</h1>
+                <h1>${sessionScope.studentName}</h1>
             </div>
 
             <div> 
             <table class="table table-hover table-dark">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col" class="text-danger">#</th>
+                        <th scope="col" class="text-success font-weight-bold">Date</th>
+                        <th scope="col" class="text-success font-weight-bold">Disease</th>
+                        <th scope="col" class="text-success font-weight-bold">Action</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -24,8 +24,8 @@ public class PrescripTionSave {
         
         Prescription p = new Prescription();
         p.setDoctorId("DC-1003");
-        p.setStudentId("IT-12044");
-        p.setStudentName("Noman");
+        p.setStudentId("IT-12046");
+        p.setStudentName("Ibrahim");
         p.setAge(25);
         p.setDisease("Cold");
         p.setMedicine("Napa, Ace");

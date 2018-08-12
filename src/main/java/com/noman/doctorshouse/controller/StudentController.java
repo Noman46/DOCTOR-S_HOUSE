@@ -11,11 +11,13 @@ import com.noman.doctorshouse.command.RegistrationCommand;
 import com.noman.doctorshouse.domain.Prescription;
 import com.noman.doctorshouse.domain.Student;
 import com.noman.doctorshouse.service.StudentService;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -26,14 +28,16 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-
+//++++++++++++++++++++++++++ RETURN INDEX / STARTING / HOME PAGE+++++++++++++++++
     // Index or Landing page. 
+
     @RequestMapping(value = {"/", "/index"})
     public String index() {
 
         return "home"; // It will return Home page as ajsp view
     }
 
+    // +++++++++++++++++++++++++ RETURN LOGIN PAGE ++++++++++++++++++++++++++++++++++   
     //Return Login page after clicking Login 
     @RequestMapping(value = {"student/loginPage"})
     public String loginReturn(Model m) {
@@ -42,6 +46,49 @@ public class StudentController {
         return "login";
     }
 
+    //+++++++++++++++++++++++++++ RETURN DOCTOR'S SCHEDULE +++++++++++++++++++++++
+    //Return Doctor;s Schedule page after clicking Login 
+    @RequestMapping(value = {"doctor/Schedule"})
+    public String scheduleReturn() {
+        return "Schedule";
+    }
+
+    //+++++++++++++++++++++++++++ RETURN SUCCESS PAGE +++++++++++++++++++++++
+    @RequestMapping(value = {"/student/registrationdo"})
+    public String registrationDo(@ModelAttribute("command") RegistrationCommand cmd, Model m) {
+        Student s = cmd.getS();
+        studentService.register(s);
+        return "success";
+    }
+
+    //+++++++++++++++++++++++++++ LOGIN BUSINESS +++++++++++++++++++++++
+    @RequestMapping(value = "/student/logindo", method = RequestMethod.POST)
+    public String loginDo(@ModelAttribute("command") LoginCommand cmd, Model M, HttpSession session) {
+
+        try {
+            Student loggedinStudent = studentService.login(cmd.getStudentId(), cmd.getPassword());
+            if (loggedinStudent == null) {
+                M.addAttribute("msg", "wrogn");
+                return "fail";
+
+            } else {
+                //M.addAttribute("msg", "fuck you did this");
+                addStudentInSession(loggedinStudent, session);
+               return "redirect:/listOfPrescription";
+            }
+
+        } catch (NullPointerException exception) {
+            return "fail";
+        }
+
+    }
+
+    @RequestMapping(value = {"/listOfPrescription"})
+    public String returnListPrescription() {
+        return "prescription"; // return JSP /WEB-INF/view/dashboard_user.jsp
+    }
+
+    //+++++++++++++++++++++++++++ RETURN REGISTRATION PAGE +++++++++++++++++++++++
     //Return Registration page after clicking Login 
     @RequestMapping(value = {"student/Registration"})
     public String registrationReturn(Model m) {
@@ -51,64 +98,35 @@ public class StudentController {
         return "registration";
     }
 
-    //Return Doctor;s Schedule page after clicking Login 
-    @RequestMapping(value = {"doctor/Schedule"})
-    public String scheduleReturn() {
-        return "Schedule";
-    }
+    //+++++++++++++++++++++++++++ SAVE PRESCRIPTION +++++++++++++++++++++++
+    @RequestMapping(value = {"/doctor/savePrescription"})
+    public String savePrescription(@ModelAttribute("command") PrescriptionCommand cmd, Model m) {
+        Prescription prescription = cmd.getP();
 
-    //Return prescription page after clicking Login 
-    @RequestMapping(value = {"student/prescription"})
-    public String prescriptionReturn() {
-        return "prescription";
-    }
-
-    @RequestMapping(value = {"/student/registrationdo"})
-    public String registrationDo(@ModelAttribute("command") RegistrationCommand cmd, Model m) {
-        Student s = cmd.getS();
-        studentService.register(s);
+        // First Make A prescriptionSave in service class.
+        // Then call It from here.
+        // As of now we don t have session, set manually DoctorId
         return "success";
     }
 
-    @RequestMapping(value = {"/student/logindo"})
-    public String loginDo(@ModelAttribute("command") LoginCommand cmd, Model M) {
-
-        try {
-            Student loggedinStudent = studentService.login(cmd.getStudentId(), cmd.getPassword());
-            if (loggedinStudent == null) {
-                M.addAttribute("msg", "wrogn");
-                return "fail";
-
-            } else {
-                M.addAttribute("msg", "fuck you did this");
-                return "success";
-            }
-
-        } catch (NullPointerException exception) {
-            return "fail";
-        }
-
-    }
-     @RequestMapping(value = {"/doctor/savePrescription"})
-    public String savePrescription(@ModelAttribute("command") PrescriptionCommand cmd, Model m){
-           Prescription prescription = cmd.getP();
-           
-           // First Make A prescriptionSave in service class.
-           // Then call It from here.
-           // As of now we don t have session, set manually DoctorId
-           return "success";    
-    }
-
+    //+++++++++++++++++++++++++++ DETAILS OF PRESCRIPTION +++++++++++++++++++++++
     @RequestMapping(value = {"/prestest"})
     public String pres() {
 
         return "presDetails";
     }
+    //+++++++++++++++++++++++++++ PRESCRIPTIOPN FORM +++++++++++++++++++++++
 
     @RequestMapping(value = {"/prestest2"})
     public String presSave(Model m) {
         PrescriptionCommand cmd = new PrescriptionCommand();
         m.addAttribute("command", cmd);
         return "prescriptionInput";
+    }
+
+    public void addStudentInSession(Student s, HttpSession session) {
+        session.setAttribute("Student", s);
+        session.setAttribute("studentId", s.getStudentId());
+        session.setAttribute("studentName", s.getName());
     }
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.noman.doctorshouse.dao;
+package com.noman.doctorshouse.service;
 
 import com.noman.doctorshouse.domain.Prescription;
 import java.util.List;
@@ -12,8 +12,9 @@ import java.util.List;
  *
  * @author Noman Ibrahim
  */
-public interface PrescriptionDao {
-    public void save(Prescription pre);
+public interface PrescriptionService {
+    public void prescriptionSave(Prescription p);
     public Prescription findById(String studentId);
-    public List<Prescription> findAll(String studentId); 
+    public List<Prescription> findAllPrescriptions(String studentId); 
+    
 }

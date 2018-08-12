@@ -8,6 +8,7 @@ package com.noman.doctorshouse.dao;
 import com.noman.doctorshouse.domain.Prescription;
 import com.noman.doctorshouse.rm.PrescriptionRowMapper;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -55,5 +56,16 @@ public class PrescriptionDaoImpl extends BaseDao implements PrescriptionDao{
         Prescription pre = getJdbcTemplate().queryForObject(sql, new PrescriptionRowMapper(), studentId);
         return pre;
     }
+    
+    @Override
+    public List<Prescription> findAll(String studentId) {
+        String sql = "SELECT  studentId, studentName, age, disease, medicine, strength, route, frequency, startDate, endDate, remarks"
+                + " FROM prescription WHERE studentId=?";
+        List<Prescription> p = getJdbcTemplate().query(sql, new PrescriptionRowMapper(),studentId);
+        return p;
+
+    }
+
+   
     
 }
