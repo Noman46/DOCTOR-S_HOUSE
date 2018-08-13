@@ -34,7 +34,7 @@
             <ul class="navbar_link">
                 <s:url var="url_log" value="student/loginPage"></s:url>
                 <s:url var="url_reg" value="student/Registration"></s:url>
-                <s:url var="url_logout" value="student/logout"></s:url>
+                <s:url var="url_doc_log" value="doctor/login"></s:url>
                 <s:url var="url_Doctor_schedule" value="doctor/Schedule"></s:url>
                 <s:url var="url_prescription" value="student/prescription"></s:url>
 
@@ -42,10 +42,10 @@
                 <li><a href="#" class="navbar_single_link"><i class="fa fa-heartbeat"></i> Home</a></li>
                 <li><a href="${url_reg}" class="navbar_single_link"><i class="fa fa-hospital-o"></i> Registration</a></li> 
                 <li><a href="${url_log}" class="navbar_single_link"><i class="fa fa-plus-square"></i> Login</a></li> 
-                <li><a href="${url_logout}" class="navbar_single_link"><i class="fa fa-motorcycle"></i> Logout</a></li> 
+                <li><a href="${url_doc_log}" class="navbar_single_link"><i class="fa fa-stethoscope"></i> Doctor</a></li> 
                 <li><a href="${url_Doctor_schedule}" class="navbar_single_link"><i class="fa fa-user-md"></i> Doctor's Schedule</a></li> 
                 <li><a href="${url_prescription}" class="navbar_single_link"><i class="fa fa-file"></i> Prescription</a></li> 
-
+                
             </ul>
 
         </div>

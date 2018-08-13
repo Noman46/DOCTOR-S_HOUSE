@@ -13,8 +13,11 @@ import java.util.List;
  * @author Noman Ibrahim
  */
 public interface PrescriptionService {
+
     public void prescriptionSave(Prescription p);
+
     public Prescription findById(Integer preId);
-    public List<Prescription> findAllPrescriptions(String studentId); 
-    
+
+    public List<Prescription> findAllPrescriptions(String studentId);
+
 }

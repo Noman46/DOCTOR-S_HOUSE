@@ -47,7 +47,7 @@
 
         </style>
 
-        <title>Student Login</title>
+        <title>Doctor Login</title>
 
     </head>
 
@@ -58,11 +58,11 @@
                 <div class="col-md-4 col-sm-4 col-xs-12"></div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <!-- Form Start -->
-                    <s:url var="url_logindo" value="/student/logindo"></s:url>
+                    <s:url var="url_logindo" value="/doctor/logindo"></s:url>
                     <f:form action="${url_logindo}" modelAttribute="command"  class="from-container">
                         <div class="form-group">
-                            <label for="studentId">Your Student ID</label>
-                            <f:input path="studentId" class="form-control" id="exampleInputEmail1" placeholder="Student-ID"/>
+                            <label for="doctorId">Your Doctor ID</label>
+                            <f:input path="doctorId" class="form-control" id="exampleInputEmail1" placeholder="Student-ID"/>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>

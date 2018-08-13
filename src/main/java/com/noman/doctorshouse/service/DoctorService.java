@@ -1,7 +1,6 @@
 package com.noman.doctorshouse.service;
 
 import com.noman.doctorshouse.domain.Doctor;
-import java.util.List;
 
 /**
  *
@@ -17,5 +16,6 @@ public interface DoctorService {
 
     public Doctor findById(String doctorId);
 
-   
+    public Doctor docLogin(String doctorId, String password);
+
 }

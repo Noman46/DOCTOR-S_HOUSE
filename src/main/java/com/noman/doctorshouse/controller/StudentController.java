@@ -105,16 +105,7 @@ public class StudentController {
         return "registration";
     }
 
-    //+++++++++++++++++++++++++++ SAVE PRESCRIPTION +++++++++++++++++++++++
-    @RequestMapping(value = {"/doctor/savePrescription"})
-    public String savePrescription(@ModelAttribute("command") PrescriptionCommand cmd, Model m) {
-        Prescription prescription = cmd.getP();
 
-        // First Make A prescriptionSave in service class.
-        // Then call It from here.
-        // As of now we don t have session, set manually DoctorId
-        return "success";
-    }
 
     //+++++++++++++++++++++++++++ DETAILS OF PRESCRIPTION +++++++++++++++++++++++
     @RequestMapping(value = {"/prescriptionDetails"})
@@ -126,14 +117,7 @@ public class StudentController {
         
         return "presDetails";
     }
-    //+++++++++++++++++++++++++++ PRESCRIPTIOPN FORM +++++++++++++++++++++++
-
-    @RequestMapping(value = {"/prestest2"})
-    public String presSave(Model m) {
-        PrescriptionCommand cmd = new PrescriptionCommand();
-        m.addAttribute("command", cmd);
-        return "prescriptionInput";
-    }
+ 
 
     public void addStudentInSession(Student s, HttpSession session) {
         session.setAttribute("Student", s);
