@@ -6,6 +6,8 @@ DOCTOR'S HOUSE
 A java Spring MVC based  web app. It was made keeping intention in mind to present a digital prescription, 
 also to keep the official record of the prescription. The functionality is described below. It was made for the medical center
 of Mawlana Bhashani Science and Technology University.
+
+
     * Students have to register on the system.
     * Each Student will maintain a personal profile.
     * Doctors are also registered here.
