@@ -25,6 +25,7 @@
         <style>
             body {
                 height: 100%;
+                background-color: #7fffd4;
             }
 
             .container {
@@ -45,9 +46,9 @@
                 color:red;
             }
 
-           
 
-           
+
+
 
 
         </style>
@@ -110,10 +111,10 @@
                                 <th class="text-success">Remark</th>
                                 <td class="col-md-2 text-warning"><f:input path="p.remarks" style="resize: horizontal;width: 750px;"/></td>
                             </tr>
-                            
+
                         </tbody>
                     </table>
-                            <f:button type="submit" class="btn btn-primary btn-block bt">Save</f:button>
+                    <f:button type="submit" class="btn btn-primary btn-block bt">Save</f:button>
                 </f:form>
 
 
