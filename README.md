@@ -1,3 +1,21 @@
+ #Screen Shots
+  
+  <img src="src/main/webapp/static/images/11.PNG" width="600"/>
+  
+  <img src="src/main/webapp/static/images/22.PNG" width="600"/>
+  
+  <img src="src/main/webapp/static/images/33.PNG" width="600"/>
+  
+  <img src="src/main/webapp/static/images/44.PNG" width="600"/>
+  
+  <img src="src/main/webapp/static/images/5.PNG" width="600"/>
+  
+  <img src="src/main/webapp/static/images/6.PNG" width="600"/>
+  
+  <img src="src/main/webapp/static/images/7.PNG" width="600"/>
+
+
+
 # Project Title
 DOCTOR'S HOUSE
 
@@ -41,18 +59,4 @@ of Mawlana Bhashani Science and Technology University.
   ### Server
      * Apache Tomcat (7)
      
-  #Screen Shots
-  
-  <img src="src/main/webapp/static/images/11.PNG" width="600"/>
-  
-  <img src="src/main/webapp/static/images/22.PNG" width="600"/>
-  
-  <img src="src/main/webapp/static/images/33.PNG" width="600"/>
-  
-  <img src="src/main/webapp/static/images/44.PNG" width="600"/>
-  
-  <img src="src/main/webapp/static/images/5.PNG" width="600"/>
-  
-  <img src="src/main/webapp/static/images/6.PNG" width="600"/>
-  
-  <img src="src/main/webapp/static/images/7.PNG" width="600"/>
+ 
